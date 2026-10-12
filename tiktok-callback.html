@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Connected – Kids Shorts Studio</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header><h1>Almost done ✨</h1><p>TikTok sign-in for Kids Shorts Studio</p></header>
+<main>
+<section>
+<p id="msg">Copy the full address of this page and paste it into the studio's connect command.</p>
+<p><input id="url" readonly><button id="copy" type="button">Copy address</button></p>
+</section>
+</main>
+<script>
+// Shows this page's address (it carries TikTok's one-time code) so it can be copied into the studio.
+var u=document.getElementById('url'),q=new URLSearchParams(location.search);
+u.value=location.href;
+if(q.get('error'))document.getElementById('msg').textContent='TikTok sign-in was cancelled: '+q.get('error');
+document.getElementById('copy').onclick=function(){u.select();navigator.clipboard.writeText(u.value);this.textContent='Copied ✓';};
+</script>
+</body></html>
